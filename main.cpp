@@ -2,6 +2,10 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include<algorithm>
+#include<numeric>
+#include <cstdlib>
+#include <ctime>
 #include "Goat.h"
 using namespace std;
 
