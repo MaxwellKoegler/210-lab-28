@@ -128,12 +128,22 @@ int main() {
                 }
                 display_trip(trip);
                 break;
-            }
-            
-
-            default:
-                cout << "Invalid selection.\n";
+            } 
+            case 12:{
+                trip.sort();
+                auto p=trip.begin();
+                while(p!=trip.end()){
+                    auto q=p;
+                    ++q;
+                    if(q!=trip.end() && p->get_name()==q->get_name())
+                        trip.erase(q);
+                    else
+                        ++p;
+                }
+                display_trip(trip);
                 break;
+            }
+
         }
         sel = main_menu();
     }
@@ -155,11 +165,12 @@ int main_menu() {
     cout << "[9] Display goats with for_each\n";
     cout << "[10] Remove select goat\n";
     cout << "[11] Replace goat colors\n";
+    cout << "[12] Remove duplicate goats\n";
 
     cout << "Choice --> ";
     int choice;
     cin >> choice;
-    while (choice < 1 || choice > 4) {
+    while (choice < 1 || choice > 12) {
         cout << "Invalid, again --> ";
         cin >> choice;
     }
