@@ -124,6 +124,7 @@ int main_menu() {
     cout << "[7] Total goat ages\n";
     cout << "[8] Check goat ages\n";
     cout << "[9] Display goats with for_each\n";
+    
     cout << "Choice --> ";
     int choice;
     cin >> choice;
