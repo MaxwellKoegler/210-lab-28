@@ -62,6 +62,10 @@ int main() {
                 cout << "Displaying goat data.\n";
                 display_trip(trip);
                 break;
+            case 5:
+                trip.sort();
+                display_trip(trip);
+                break;
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -79,6 +83,7 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Quit\n";
+    cout << "[5] Sort Goats";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -124,7 +129,7 @@ int select_goat(list<Goat> trp) {
     display_trip(trp);
     cout << "Choice --> ";
     cin >> input;
-    while (input < 1 or input > trp.size()) {
+    while (input < 1 || input > trp.size()) {
         cout << "Invalid choice, again --> ";
         cin >> input;
     }
