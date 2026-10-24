@@ -63,7 +63,7 @@ int main() {
                 display_trip(trip);
                 break;
             case 5:
-                trip.sort();
+                trip.sort(); //sorts
                 display_trip(trip);
                 break;
             case 6:{
@@ -74,7 +74,7 @@ int main() {
                 }
                 cout << "Name";
                 cin >> x;
-                auto p = find(n.begin(),n.end(),x);
+                auto p = find(n.begin(),n.end(),x);//finds by name
                 if(p!=n.end()){
                     cout << "Found " << *p << endl;
                 } else {
@@ -83,7 +83,7 @@ int main() {
                 break;
             }
             case 7:{
-                int a = accumulate(trip.begin(),trip.end(), 0, [](int s, Goat g){return s+g.get_age();});
+                int a = accumulate(trip.begin(),trip.end(), 0, [](int s, Goat g){return s+g.get_age();}); //adds the member var
                 cout << "Total age: " << a << endl;
                 break;
             }
@@ -91,7 +91,7 @@ int main() {
                 int x;
                 cout << "Age: ";
                 cin >> x;
-                bool b = any_of(trip.begin(), trip.end(), [x](Goat g){return g.get_age()>x;});
+                bool b = any_of(trip.begin(), trip.end(), [x](Goat g){return g.get_age()>x;}); //check goats ages
                 if (b)
                     cout << "Some goats are older.\n";
                 else
@@ -99,14 +99,14 @@ int main() {
                 break;
             }
             case 9:{
-                for_each(trip.begin(), trip.end(), [](Goat g){cout << g.get_name()<<" "<<g.get_age() << " "<<g.get_color()<<endl;});
+                for_each(trip.begin(), trip.end(), [](Goat g){cout << g.get_name()<<" "<<g.get_age() << " "<<g.get_color()<<endl;});//display goats
                 break;
             }
             case 10:{
                 int x=select_goat(trip);
                 auto p=trip.begin();
                 advance(p,x-1);
-                trip.erase(p);
+                trip.erase(p);//remove selected goat
                 display_trip(trip);
                 break;
             } case 11: {
@@ -120,7 +120,7 @@ int main() {
                 cin >> x;
                 cout << "New color: ";
                 cin>>y;
-                replace(n.begin(),n.end(),x,y);
+                replace(n.begin(),n.end(),x,y); //color replacment 
                 auto p=n.begin();
                 for(auto &g:trip){
                     g.set_color(*p);
@@ -135,7 +135,7 @@ int main() {
                 while(p!=trip.end()){
                     auto q=p;
                     ++q;
-                    if(q!=trip.end() && p->get_name()==q->get_name())
+                    if(q!=trip.end() && p->get_name()==q->get_name()) //remove dup goats
                         trip.erase(q);
                     else
                         ++p;
