@@ -100,7 +100,17 @@ int main() {
             }
             case 9:{
                 for_each(trip.begin(), trip.end(), [](Goat g){cout << g.get_name()<<" "<<g.get_age() << " "<<g.get_color()<<endl;});
+                break;
             }
+            case 10:{
+                int x=select_goat(trip);
+                auto p=trip.begin();
+                advance(p,x-1);
+                trip.erase(p);
+                display_trip(trip);
+                break;
+            }
+            
 
             default:
                 cout << "Invalid selection.\n";
@@ -124,7 +134,8 @@ int main_menu() {
     cout << "[7] Total goat ages\n";
     cout << "[8] Check goat ages\n";
     cout << "[9] Display goats with for_each\n";
-    
+    cout << "[10] Remove select goat\n";
+
     cout << "Choice --> ";
     int choice;
     cin >> choice;
@@ -163,6 +174,7 @@ void display_trip(list<Goat> trp) {
              << " (" << gt.get_age() 
              << ", " << gt.get_color() << ")\n";
 }
+
 
 int select_goat(list<Goat> trp) {
     int input;
