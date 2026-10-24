@@ -109,6 +109,25 @@ int main() {
                 trip.erase(p);
                 display_trip(trip);
                 break;
+            } case 11: {
+                string x;
+                string y;
+                list<string> n;
+                for(auto g:trip){
+                    n.push_back(g.get_color());
+                }
+                cout << "Color to replace";
+                cin >> x;
+                cout << "New color: ";
+                cin>>y;
+                replace(n.begin(),n.end(),x,y);
+                auto p=n.begin();
+                for(auto &g:trip){
+                    g.set_color(*p);
+                    ++p;
+                }
+                display_trip(trip);
+                break;
             }
             
 
@@ -135,6 +154,7 @@ int main_menu() {
     cout << "[8] Check goat ages\n";
     cout << "[9] Display goats with for_each\n";
     cout << "[10] Remove select goat\n";
+    cout << "[11] Replace goat colors\n";
 
     cout << "Choice --> ";
     int choice;
