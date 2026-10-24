@@ -82,6 +82,22 @@ int main() {
                 }
                 break;
             }
+            case 7:{
+                int a = accumulate(trip.begin(),trip.end(), 0, [](int s, Goat g){return s+g.get_age();});
+                cout << "Total age: " << a << endl;
+                break;
+            }
+            case 8:{
+                int x;
+                cout << "Age: ";
+                cin >> x;
+                bool b = any_of(trip.begin(), trip.end(), [x](Goat g){return g.get_age()>x;});
+                if (b)
+                    cout << "Some goats are older.\n";
+                else
+                    cout << "No goats are older.\n";
+                break;
+            }
 
             default:
                 cout << "Invalid selection.\n";
@@ -102,6 +118,8 @@ int main_menu() {
     cout << "[4] Quit\n";
     cout << "[5] Sort Goats\n";
     cout << "[6] Find goat by name\n";
+    cout << "[7] Total goat ages\n";
+    cout << "[8] Check goat ages\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
