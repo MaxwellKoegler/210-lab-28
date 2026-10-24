@@ -98,6 +98,9 @@ int main() {
                     cout << "No goats are older.\n";
                 break;
             }
+            case 9:{
+                for_each(trip.begin(), trip.end(), [](Goat g){cout << g.get_name()<<" "<<g.get_age() << " "<<g.get_color()<<endl;});
+            }
 
             default:
                 cout << "Invalid selection.\n";
@@ -120,6 +123,7 @@ int main_menu() {
     cout << "[6] Find goat by name\n";
     cout << "[7] Total goat ages\n";
     cout << "[8] Check goat ages\n";
+    cout << "[9] Display goats with for_each\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
