@@ -66,6 +66,23 @@ int main() {
                 trip.sort();
                 display_trip(trip);
                 break;
+            case 6:{
+                string x;
+                list<string> n;
+                for(auto g:trip){
+                    n.push_back(g.get_name());
+                }
+                cout << "Name";
+                cin >> x;
+                auto p = find(n.begin(),n.end(),x);
+                if(p!=n.end()){
+                    cout << "Found " << *p << endl;
+                } else {
+                    cout << "Not found";
+                }
+                break;
+            }
+
             default:
                 cout << "Invalid selection.\n";
                 break;
@@ -83,7 +100,8 @@ int main_menu() {
     cout << "[2] Delete a goat\n";
     cout << "[3] List goats\n";
     cout << "[4] Quit\n";
-    cout << "[5] Sort Goats";
+    cout << "[5] Sort Goats\n";
+    cout << "[6] Find goat by name\n";
     cout << "Choice --> ";
     int choice;
     cin >> choice;
